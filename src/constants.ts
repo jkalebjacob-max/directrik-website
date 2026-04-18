@@ -1,27 +1,38 @@
 import armstrongLogo from './photos/armstrong.png';
-import weirLogo      from './photos/weir.png';
+import weirLogo from './photos/weir.png';
 import vogelsangLogo from './photos/vogelsang.png';
-import mapnerLogo    from './photos/mapner.png';
-import ddiLogo       from './photos/ddi.png';
-import ataraLogo     from './photos/atara.png';
-import siouxLogo     from './photos/sioux.png';
-import turbowinLogo  from './photos/turbowin.png';
-import fujiwaraLogo  from './photos/fujiwara.png';
+import mapnerLogo from './photos/mapner.png';
+import ddiLogo from './photos/ddi.png';
+import ataraLogo from './photos/atara.png';
+import turbowinLogo from './photos/turbowin.png';
+import fujiwaraLogo from './photos/fujiwara.png';
+import flowserveLogo from './photos/flowserve.png';
+import hidrostalLogo from './photos/hidrostal.png';
+import trilliumLogo from './photos/trillium.png';
+import svenLogo from './photos/sioux.png';
+
+/** Abbreviation for manufacturer rows without a logo image. */
+export function manufacturerInitials(name: string): string {
+  const cleaned = name.replace(/[^a-zA-Z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+  const parts = cleaned.split(' ').filter(Boolean);
+  if (parts.length === 0) return name.slice(0, 3).toUpperCase();
+  if (parts.length === 1) return parts[0]!.slice(0, 3).toUpperCase();
+  return parts.map((p) => p[0]).join('').slice(0, 3).toUpperCase();
+}
 
 export const NAV_LINKS = [
-  { name: 'Services',   href: '/#services' },
-  { name: 'Products',   href: '/products' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Products', href: '/products' },
   { name: 'Industries', href: '/#industries' },
-  { name: 'About',      href: '/about' },
-  { name: 'Contact',    href: '/contact' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 export const PRODUCT_CATEGORIES = [
-  { name: 'Pumps & Pump Parts',       icon: 'Droplets' },
-  { name: 'Valves & Flow Control',    icon: 'Settings2' },
-  { name: 'Heat Transfer Equipment',  icon: 'Thermometer' },
-  { name: 'Mixers & Aeration',        icon: 'Wind' },
-  { name: 'Process Equipment',        icon: 'Factory' },
+  { name: 'Pumps & Pump Parts', icon: 'Droplets' },
+  { name: 'Heat Transfer Equipment', icon: 'Thermometer' },
+  { name: 'Mixers & Aeration', icon: 'Wind' },
+  { name: 'Process Equipment', icon: 'Factory' },
 ];
 
 export const INDUSTRIES = [
@@ -32,127 +43,185 @@ export const INDUSTRIES = [
   'Utilities & Public Works',
 ];
 
+/** Public-facing brand strip and partner list — exact client roster (no DDI). */
 export const BRANDS = [
-  'Armstrong',
-  'Weir',
   'Vogelsang',
-  'Mapner',
-  'Enersave Mixers',
-  'DDI Heat Exchanger',
-  'Atara Equipment',
-  'Sioux Valley Environmental',
-  'Turbowin',
+  'Weir',
+  'Trillium (WEMCO)',
+  'Hidrostal',
   'Fujiwara',
+  'Armstrong',
+  'Flowserve',
+  'Turbowin',
+  'Atara',
+  'Sven',
+  'Mapner',
 ];
 
+/**
+ * Full catalog for products page & home preview cards.
+ * Order: client brand list, then DDI (catalog only — not in BRANDS strip).
+ */
 export const MANUFACTURERS = [
   {
-    name: 'Armstrong',
-    logo: armstrongLogo,
-    specialty: 'Pumping Solutions',
-    products: ['Centrifugal Pumps', 'Vertical Turbine Pumps', 'Pump Controllers', 'Heat Exchangers'],
+    name: 'Vogelsang',
+    logo: vogelsangLogo,
+    specialty: 'Rotary Lobe Technology',
+    products: [
+      'Rotary Lobe Pumps',
+      'Maceration Systems',
+      'Biogas Equipment',
+      'Distribution Systems',
+      'Progressive Cavity Pumps',
+    ],
   },
   {
     name: 'Weir',
     logo: weirLogo,
     specialty: 'Slurry & Process Pumps',
-    products: ['Slurry Pumps', 'Dewatering Pumps', 'Process Pumps', 'Valves'],
+    products: ['Slurry Pumps', 'Dewatering Pumps', 'Process Pumps', 'Rubber-Lined Pumps'],
   },
   {
-    name: 'Vogelsang',
-    logo: vogelsangLogo,
-    specialty: 'Rotary Lobe Technology',
-    products: ['Rotary Lobe Pumps', 'Maceration Systems', 'Biogas Equipment', 'Distribution Systems'],
+    name: 'Trillium (WEMCO)',
+    logo: trilliumLogo,
+    specialty: 'Municipal Process Equipment',
+    products: [
+      'Torque Flow Pumps',
+      'Grit Removal Systems',
+      'Screw Flow Pumps',
+      'Chop Flow Pumps',
+      'Self-Priming Pumps',
+    ],
   },
   {
-    name: 'Mapner',
-    logo: mapnerLogo,
-    specialty: 'Industrial Centrifugal Pumps',
-    products: ['End Suction Pumps', 'Split Case Pumps', 'Multistage Pumps', 'Vertical Pumps'],
-  },
-  {
-    name: 'Enersave Mixers',
-    logo: null,
-    specialty: 'Industrial Mixing Systems',
-    products: ['Submersible Mixers', 'Top Entry Mixers', 'Side Entry Mixers', 'Aerators'],
-  },
-  {
-    name: 'DDI Heat Exchanger',
-    logo: ddiLogo,
-    specialty: 'Thermal Management',
-    products: ['Shell & Tube Exchangers', 'Plate Heat Exchangers', 'Air Coolers', 'Condensers'],
-  },
-  {
-    name: 'Atara Equipment',
-    logo: ataraLogo,
-    specialty: 'Specialty Process Equipment',
-    products: ['Pressure Vessels', 'Separators', 'Skid Packages', 'Custom Fabrications'],
-  },
-  {
-    name: 'Sioux Valley Environmental',
-    logo: siouxLogo,
-    specialty: 'Environmental Systems',
-    products: ['Biofilter Systems', 'Odour Control', 'Chemical Dosing', 'Water Treatment'],
-  },
-  {
-    name: 'Turbowin',
-    logo: turbowinLogo,
-    specialty: 'Blower Technology',
-    products: ['Rotary Screw Blowers', 'Turbo Blowers', 'Roots Blowers', 'Blower Controls'],
+    name: 'Hidrostal',
+    logo: hidrostalLogo,
+    specialty: 'Screw Centrifugal & Mixing',
+    products: [
+      'Screw Centrifugal Pumps',
+      'Pre-Rostal Pumping Systems',
+      'Digester Mixing',
+    ],
   },
   {
     name: 'Fujiwara',
     logo: fujiwaraLogo,
-    specialty: 'Precision Gear Pumps',
-    products: ['Gear Pumps', 'Lobe Pumps', 'Screw Pumps', 'Chemical Metering Pumps'],
+    specialty: 'Sludge & Scum Systems',
+    products: ['Sludge and Scum Removal Systems'],
+  },
+  {
+    name: 'Armstrong',
+    logo: armstrongLogo,
+    specialty: 'Pumping Solutions',
+    products: [
+      'Centrifugal Pumps',
+      'Vertical Turbine Pumps',
+      'Pump Controllers',
+      'Heat Exchangers',
+      'Booster Systems',
+    ],
+  },
+  {
+    name: 'Flowserve',
+    logo: flowserveLogo,
+    specialty: 'Engineered Pump Solutions',
+    products: [
+      'Vertical Turbine Pumps',
+      'Split-Case Pumps',
+      'SIHI Vacuum Pumps',
+      'Byron Jackson Pumps',
+      'Durco Innomag Worthington',
+    ],
+  },
+  {
+    name: 'Turbowin',
+    logo: turbowinLogo,
+    specialty: 'Compression & Blower Technology',
+    products: ['Air-Bearing Compressors', 'Blowers'],
+  },
+  {
+    name: 'Atara',
+    logo: ataraLogo,
+    specialty: 'Conveying Equipment',
+    products: ['Shaftless Screw Conveyors'],
+  },
+  {
+    name: 'Sven',
+    logo: svenLogo,
+    specialty: 'Polymer & Chemical Systems',
+    products: [
+      'Chemical Mixing Systems',
+      'Polymer Mixing',
+      'Injection Systems',
+      'Polymer Dosing Systems',
+    ],
+  },
+  {
+    name: 'Mapner',
+    logo: mapnerLogo,
+    specialty: 'Compression Equipment',
+    products: ['Sliding Vane Compressors'],
+  },
+  {
+    name: 'DDI',
+    logo: ddiLogo,
+    specialty: 'Thermal Management',
+    products: ['Cube & Cube Heat Exchangers', 'Sludge Heat Exchangers', 'Heat Recovery'],
   },
 ];
 
+/** Count on the public brand strip (`BRANDS`). */
+export const BRAND_PARTNER_COUNT = BRANDS.length;
+
 export const SERVICES = [
   {
-    title: 'Pump Supply & Parts',
-    description: 'Authorized distributor for pumps and pump components — including impellers, seals, wear rings, and replacement parts for municipal water and wastewater applications.',
+    title: 'Pump Refurbishment',
+    description:
+      'Complete refurbishment of municipal pumps and rotating equipment — disassembly, inspection, rebuild, and testing to restore rated performance and extend service life.',
     icon: 'Droplets',
   },
   {
-    title: 'On-Site Pump Repair',
-    description: 'Rapid field service for pump failures at water and wastewater treatment facilities — technicians available within 24 hours to restore operations.',
+    title: 'Field Refurbishment Support',
+    description:
+      'On-site support for refurbishment projects at water and wastewater facilities — coordinated shutdowns, removal assistance, and recommissioning to minimize downtime.',
     icon: 'Wrench',
   },
   {
-    title: 'System Engineering',
-    description: 'Technical support for pump selection, system design, and equipment specification for new construction and rehabilitation projects at municipal facilities.',
+    title: 'Refurbishment Engineering',
+    description:
+      'Technical assessments and specifications for refurbishment work — documenting wear, defining scope, and aligning rebuilt equipment with your facility’s operating conditions.',
     icon: 'DraftingCompass',
   },
   {
-    title: 'Machining & Refurbishment',
-    description: 'In-house machining and pump component restoration to extend equipment service life and reduce capital replacement costs for municipalities.',
+    title: 'Quality Assurance & Testing',
+    description:
+      'Structured acceptance testing and documentation after refurbishment — verifying performance, efficiency, and reliability before equipment returns to service.',
     icon: 'Cpu',
   },
 ];
 
-export const REPAIR_SERVICES = [
-  'Pump Repair',
-  'Gas Compressor Repair',
-  'Blower Repair',
-];
+export const REPAIR_SERVICES = ['Pump Repair', 'Gas Compressor Repair', 'Blower Repair'];
 
 export const WHY_CHOOSE_US = [
   {
-    title: 'Authorized Distributor',
-    description: 'Direct factory partnerships with leading pump manufacturers — ensuring genuine parts and full warranty support for municipal infrastructure.',
+    title: 'Authorized Brand Partnerships',
+    description:
+      'Direct relationships with our manufacturer brand partners — genuine parts, warranty-aligned support, and refurbishment scope tied to municipal infrastructure needs.',
   },
   {
     title: '24-Hour Emergency Response',
-    description: 'Municipal operations cannot afford downtime. Our technicians are available around the clock for urgent pump failures and critical repairs.',
+    description:
+      'Municipal operations cannot afford downtime. Our technicians are available around the clock for urgent pump failures and critical repairs.',
   },
   {
-    title: 'In-House Machining',
-    description: 'We restore pump components to original specification in-house — reducing lead times and eliminating the need for full equipment replacement.',
+    title: 'Refurbishment Expertise',
+    description:
+      'Focused refurbishment programs that restore pumps and process equipment to reliable operating condition — reducing capital spend compared to full replacement.',
   },
   {
     title: 'Municipal Expertise',
-    description: 'Decades of experience working with water and wastewater treatment facilities means we understand the standards, timelines, and accountability municipalities require.',
+    description:
+      'Decades of experience working with water and wastewater treatment facilities means we understand the standards, timelines, and accountability municipalities require.',
   },
 ];
 
@@ -162,9 +231,13 @@ export const CONTACT_INFO = {
   location: 'Ontario, Canada',
 };
 
+/** Short footer blurb (home + inner pages). */
+export const SITE_FOOTER_TAGLINE =
+  'Pump refurbishment, parts, and support for municipal water and wastewater facilities across Ontario and North America.';
+
 export const TRUST_STATS = [
-  { value: '25+',    label: 'Years Serving Municipalities' },
-  { value: '10+',    label: 'Authorized Pump Manufacturers' },
+  { value: '25+', label: 'Years Serving Municipalities' },
+  { value: String(BRAND_PARTNER_COUNT), label: 'Brand Partners' },
   { value: '1,000+', label: 'Municipal Projects Completed' },
-  { value: '24/7',   label: 'Emergency Repair Service' },
+  { value: '24/7', label: 'Emergency Repair Service' },
 ];

@@ -13,12 +13,12 @@ import {
   X,
   ArrowRight,
 } from 'lucide-react';
-import { NAV_LINKS, CONTACT_INFO } from '../constants';
+import { NAV_LINKS, CONTACT_INFO, SITE_FOOTER_TAGLINE } from '../constants';
 
 const TRUST_POINTS = [
   { icon: Clock,         text: 'Response within 24 hours' },
   { icon: Shield,        text: 'Serving municipalities across Ontario and Canada' },
-  { icon: CheckCircle2,  text: 'Specialized in pumps for water & wastewater treatment' },
+  { icon: CheckCircle2,  text: 'Focused on municipal pump refurbishment and water / wastewater treatment support' },
 ];
 
 export default function ContactPage() {
@@ -61,7 +61,7 @@ export default function ContactPage() {
     <div className="min-h-screen font-sans bg-white selection:bg-brand-200 selection:text-brand-900">
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center">
@@ -121,7 +121,7 @@ export default function ContactPage() {
                 Request a Quote
               </h1>
               <p className="text-slate-400 text-lg leading-[1.7] max-w-xl">
-                Tell us about your pump requirements or facility needs and our team will respond within 24 hours.
+                Share your refurbishment, parts, or field-support needs for your water or wastewater facility — our team will respond within 24 hours.
               </p>
             </motion.div>
           </div>
@@ -236,7 +236,7 @@ export default function ContactPage() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Describe your pump requirements, facility type, or what you need help with…"
+                      placeholder="Describe your facility, equipment tags, refurbishment or parts needs, and timeline…"
                       className="w-full px-4 py-3 border border-slate-300 rounded-sm text-sm text-brand-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-600 focus:ring-[3px] focus:ring-brand-100 transition-all resize-none"
                     />
                   </div>
@@ -330,9 +330,9 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
             <div>
-              <img src={directrikLogo} alt="Directrik Logo" className="h-8 w-auto object-contain mb-3 brightness-0 invert" />
+              <img src={directrikLogo} alt="Directrik Logo" className="h-9 w-auto max-h-9 object-contain mb-3" />
               <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-                Authorized industrial distributor for pumps, fluid systems, and process equipment across North America.
+                {SITE_FOOTER_TAGLINE}
               </p>
             </div>
             <div className="flex flex-col gap-3">

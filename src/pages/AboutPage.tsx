@@ -7,36 +7,47 @@ import {
   Droplets, Wrench, DraftingCompass, Cpu,
   CheckCircle2, Shield, Users, Zap,
 } from 'lucide-react';
-import { NAV_LINKS, INDUSTRIES, WHY_CHOOSE_US, CONTACT_INFO } from '../constants';
+import {
+  NAV_LINKS,
+  INDUSTRIES,
+  WHY_CHOOSE_US,
+  CONTACT_INFO,
+  BRAND_PARTNER_COUNT,
+  SITE_FOOTER_TAGLINE,
+} from '../constants';
 
 const SERVICES_SUMMARY = [
   {
     icon: Droplets,
-    title: 'Equipment Supply',
-    description: 'Authorized distributor for pumps, compressors, blowers, heat exchangers, valves, and complete fluid control systems.',
+    title: 'Pump Refurbishment',
+    description:
+      'Complete refurbishment of municipal pumps and rotating equipment — inspection, rebuild, and performance testing to restore rated duty.',
   },
   {
     icon: Wrench,
-    title: 'On-Site Repair',
-    description: 'Rapid field service for pump, compressor, and blower emergencies — with technicians deployable within 24 hours.',
+    title: 'Field Refurbishment Support',
+    description:
+      'On-site coordination for refurbishment work at treatment facilities — shutdown planning, removal and reinstall support, and recommissioning.',
   },
   {
     icon: DraftingCompass,
-    title: 'System Engineering',
-    description: 'Custom-engineered fluid handling systems designed from initial specification through to commissioning.',
+    title: 'Refurbishment Engineering',
+    description:
+      'Technical assessments and scope definition for refurbishment projects — aligning rebuilt equipment with flow, head, and process requirements.',
   },
   {
     icon: Cpu,
-    title: 'Machining & Refurbishment',
-    description: 'Precision in-house machining and component restoration to extend equipment life and minimize capital expenditure.',
+    title: 'Quality Assurance & Testing',
+    description:
+      'Acceptance testing and documentation after refurbishment — verifying efficiency, vibration, and reliability before equipment returns to service.',
   },
 ];
 
 const EXPERTISE_STATS = [
-  { value: '25+',    label: 'Years in Operation' },
-  { value: '10+',    label: 'Authorized Manufacturers' },
+  { value: '25+', label: 'Years in Operation' },
+  { value: String(BRAND_PARTNER_COUNT), label: 'Brand Partners' },
   { value: '1,000+', label: 'Projects Completed' },
-  { value: '24/7',   label: 'Emergency Response' },
+  { value: '24/7', label: 'Emergency Response' },
 ];
 
 const INDUSTRY_DETAILS: Record<string, string> = {
@@ -56,7 +67,7 @@ export default function AboutPage() {
     <div className="min-h-screen font-sans bg-white selection:bg-brand-200 selection:text-brand-900">
 
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="flex items-center">
@@ -114,10 +125,10 @@ export default function AboutPage() {
             >
               <p className="text-xs font-bold text-accent uppercase tracking-[0.18em] mb-5">About Directrik</p>
               <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.1] mb-6">
-                Pump Expertise Built for Municipal Water & Wastewater Operations
+                Refurbishment & Pump Support for Municipal Water & Wastewater
               </h1>
               <p className="text-slate-400 text-lg leading-[1.7] max-w-2xl">
-                Directrik Inc. is an authorized pump distributor and service provider based in Ontario, Canada. We supply pumps, pump parts, and repair services to municipalities operating water treatment and wastewater treatment infrastructure across Canada and the United States.
+                Directrik Inc. is based in Ontario, Canada. We specialize in municipal pump refurbishment — from scope and engineering through rebuild, testing, and field support — backed by genuine parts and authorized brand partnerships across Canada and the United States.
               </p>
             </motion.div>
           </div>
@@ -156,17 +167,17 @@ export default function AboutPage() {
               >
                 <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Who We Are</h2>
                 <h3 className="text-3xl md:text-4xl font-bold text-brand-900 tracking-[-0.025em] mb-6">
-                  A Trusted Partner for Municipal Infrastructure
+                  Specialists in Municipal Pump Refurbishment
                 </h3>
                 <div className="space-y-5 text-slate-600 leading-[1.78]">
                   <p>
-                    Founded on deep technical knowledge and long-standing manufacturer relationships, Directrik supplies pumps, pump components, and repair services specifically to municipalities and public utilities managing water and wastewater infrastructure.
+                    Our practice is built on deep rotating-equipment knowledge and long-standing manufacturer brand relationships. Municipalities and public utilities rely on us for refurbishment programs, genuine components, and field service tied to water and wastewater infrastructure.
                   </p>
                   <p>
-                    We work directly with plant operators, engineers, and procurement teams to identify the right pump for each application — whether it's a new installation, a replacement, or an urgent repair. Our team provides hands-on technical support that goes well beyond catalogue distribution.
+                    We work with plant operators, engineers, and procurement to define refurbishment scope, manage replacements when required, and respond to urgent failures — with technical support grounded in how your facility actually runs.
                   </p>
                   <p>
-                    Headquartered in Ontario, we serve municipal clients across Canada and the United States, with on-site field service capabilities and in-house machining for pump component restoration.
+                    Headquartered in Ontario, we serve municipal clients across Canada and the United States with structured refurbishment delivery and on-site field support.
                   </p>
                 </div>
               </motion.div>
@@ -209,17 +220,20 @@ export default function AboutPage() {
                 {
                   step: '01',
                   title: 'Understand the Facility & Application',
-                  description: 'We start by reviewing your system requirements, flow conditions, site constraints, and existing equipment — so the pump we recommend is the right fit, not just the easiest one to supply.',
+                  description:
+                    'We start by reviewing your system requirements, flow conditions, site constraints, and existing equipment — so the refurbishment or replacement scope we recommend is the right fit, not just the fastest option on paper.',
                 },
                 {
                   step: '02',
-                  title: 'Supply the Right Equipment',
-                  description: 'We source pumps and components from our authorized manufacturer network and confirm compatibility with your facility\'s operating conditions before anything ships.',
+                  title: 'Source the Right Equipment',
+                  description:
+                    'We align equipment and components with our authorized brand partner network and confirm fit to your facility’s operating conditions before anything ships.',
                 },
                 {
                   step: '03',
                   title: 'Support the Life of the Equipment',
-                  description: 'We stay involved after delivery. Our team provides on-site repair, scheduled maintenance, emergency response, and in-house machining to keep municipal systems running reliably over the long term.',
+                  description:
+                    'We stay involved after delivery. Our team provides on-site repair, scheduled maintenance, emergency response, and refurbishment support to keep municipal systems running reliably over the long term.',
                 },
               ].map((item, idx) => (
                 <motion.div
@@ -254,11 +268,11 @@ export default function AboutPage() {
               <div>
                 <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Capabilities</h2>
                 <h3 className="text-3xl md:text-4xl font-bold text-brand-900 tracking-[-0.025em]">
-                  Equipment, Engineering & Service
+                  Refurbishment, Engineering & Field Support
                 </h3>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
-                The specific product categories and service disciplines that make up Directrik's technical offering.
+                Refurbishment-led capabilities and related field support that underpin Directrik’s municipal water and wastewater work.
               </p>
             </div>
 
@@ -305,7 +319,7 @@ export default function AboutPage() {
                   Municipal Applications We Support
                 </h3>
                 <p className="text-slate-500 text-sm leading-relaxed">
-                  Our pump supply and service work spans the core areas of municipal water infrastructure, each with distinct flow requirements, regulatory standards, and operational demands.
+                  Our refurbishment and pump support work spans the core areas of municipal water infrastructure, each with distinct flow requirements, regulatory standards, and operational demands.
                 </p>
               </motion.div>
 
@@ -378,10 +392,10 @@ export default function AboutPage() {
             >
               <p className="text-xs font-bold text-accent uppercase tracking-[0.18em] mb-5">Work With Us</p>
               <h2 className="text-3xl md:text-[2.75rem] font-bold text-brand-900 tracking-[-0.03em] leading-[1.1] mb-5">
-                Get the Right Pump for Your Facility
+                Scope the Right Refurbishment for Your Plant
               </h2>
               <p className="text-slate-500 text-base leading-relaxed mb-10 max-w-xl mx-auto">
-                Talk to our team about your water or wastewater application. We'll specify the right pump and service plan for your facility.
+                Tell us about your water or wastewater system. We will align refurbishment scope, parts, and field support with your operating conditions and timelines.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
@@ -408,9 +422,9 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
             <div>
-              <img src={directrikLogo} alt="Directrik Logo" className="h-8 w-auto object-contain mb-3 brightness-0 invert" />
+              <img src={directrikLogo} alt="Directrik Logo" className="h-9 w-auto max-h-9 object-contain mb-3" />
               <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
-                Authorized industrial distributor for pumps, fluid systems, and process equipment across North America.
+                {SITE_FOOTER_TAGLINE}
               </p>
             </div>
             <div className="flex flex-col gap-3">

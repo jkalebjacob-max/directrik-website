@@ -5,7 +5,6 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import {
   Droplets,
-  Settings2,
   Thermometer,
   Wind,
   Factory,
@@ -29,10 +28,12 @@ import {
   CONTACT_INFO,
   MANUFACTURERS,
   TRUST_STATS,
+  manufacturerInitials,
+  SITE_FOOTER_TAGLINE,
 } from './constants';
 
 const IconMap: Record<string, any> = {
-  Droplets, Settings2, Thermometer, Wind, Factory,
+  Droplets, Thermometer, Wind, Factory,
   DraftingCompass, Wrench, Cpu,
 };
 
@@ -43,11 +44,15 @@ export default function App() {
     <div className="min-h-screen font-sans bg-white selection:bg-brand-200 selection:text-brand-900">
 
       {/* ── Navigation ── */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex items-center">
-              <img src={directrikLogo} alt="Directrik Logo" className="h-9 w-auto object-contain" />
+            <Link to="/" className="flex items-center leading-none">
+              <img
+                src={directrikLogo}
+                alt="Directrik Logo"
+                className="block h-10 w-auto max-h-10 object-contain"
+              />
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -134,17 +139,17 @@ export default function App() {
               <div className="inline-flex items-center gap-2 bg-accent/15 border border-accent/25 px-3 py-1.5 rounded-full mb-7">
                 <span className="w-1.5 h-1.5 bg-accent rounded-full" />
                 <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">
-                  Authorized Pump Distributor — Ontario
+                  Municipal Pump Refurbishment — Ontario
                 </span>
               </div>
 
               <h1 className="text-5xl md:text-[4rem] font-bold text-white tracking-[-0.03em] leading-[1.08] mb-6">
-                Reliable Pumps for Water<br />
-                <span className="text-slate-300">& Wastewater Treatment.</span>
+                Municipal Pump Refurbishment<br />
+                <span className="text-slate-300">for Water & Wastewater Systems.</span>
               </h1>
 
               <p className="text-base text-slate-300 leading-[1.75] mb-10 max-w-lg">
-                Directrik supplies pumps, pump parts, and repair services to municipalities and public utilities operating water treatment and wastewater treatment facilities across Ontario and beyond.
+                Directrik leads with pump refurbishment and quality-assured rebuilds, supported by genuine parts and field service for municipalities and public utilities running water and wastewater facilities across Ontario and beyond.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -180,10 +185,10 @@ export default function App() {
         <div className="bg-slate-50 border-y border-slate-200 py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-7">
-              Authorized distributor for leading pump manufacturers
+              Manufacturer brand partners — additional equipment lines are available in our full catalog.
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-50 grayscale hover:opacity-70 transition-all duration-500">
-              {BRANDS.slice(0, 6).map((brand) => (
+              {BRANDS.map((brand) => (
                 <span key={brand} className="text-lg md:text-xl font-black text-slate-800 tracking-tighter italic">
                   {brand.toUpperCase()}
                 </span>
@@ -203,7 +208,7 @@ export default function App() {
                 </h3>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
-                From pump supply and parts to on-site repair and long-term maintenance — supporting municipal water and wastewater operations at every stage.
+                Refurbishment programs, field support, engineering documentation, and acceptance testing — focused on municipal water and wastewater equipment life extension.
               </p>
             </div>
 
@@ -241,23 +246,25 @@ export default function App() {
               <h3 className="text-4xl md:text-5xl font-bold tracking-[-0.025em]">Pumps, Parts & Process Equipment</h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {PRODUCT_CATEGORIES.map((cat) => {
-                const Icon = IconMap[cat.icon];
-                return (
-                  <motion.div
-                    key={cat.name}
-                    whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }}
-                    className="relative aspect-square bg-white/5 border border-white/10 p-8 flex flex-col justify-between hover:bg-white/10 transition-all cursor-pointer group overflow-hidden"
-                  >
-                    <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                      <Icon size={120} />
-                    </div>
-                    <Icon size={32} className="text-accent" />
-                    <h4 className="text-base font-bold leading-tight tracking-tight">{cat.name}</h4>
-                  </motion.div>
-                );
-              })}
+            <div className="flex w-full justify-center">
+              <div className="grid w-full max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {PRODUCT_CATEGORIES.map((cat) => {
+                  const Icon = IconMap[cat.icon];
+                  return (
+                    <motion.div
+                      key={cat.name}
+                      whileHover={{ y: -5, transition: { duration: 0.2, ease: 'easeOut' } }}
+                      className="relative aspect-square bg-white/5 border border-white/10 p-8 flex flex-col justify-between hover:bg-white/10 transition-all cursor-pointer group overflow-hidden"
+                    >
+                      <div className="absolute -right-4 -bottom-4 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <Icon size={120} />
+                      </div>
+                      <Icon size={32} className="text-accent" />
+                      <h4 className="text-base font-bold leading-tight tracking-tight">{cat.name}</h4>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
 
             <div className="mt-12 text-center">
@@ -282,7 +289,7 @@ export default function App() {
                 </h3>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
-                Direct factory partnerships with 10+ pump and process equipment manufacturers serving the municipal water and wastewater sector.
+                Direct factory relationships with the manufacturer brands shown here. Additional equipment lines are available in our full catalog. Municipal water and wastewater focus.
               </p>
             </div>
 
@@ -306,7 +313,7 @@ export default function App() {
                         />
                       ) : (
                         <span className="text-xl font-extrabold text-brand-700 tracking-[0.08em]">
-                          {mfr.name.split(' ').map((w: string) => w[0]).join('').slice(0, 3)}
+                          {manufacturerInitials(mfr.name)}
                         </span>
                       )}
                     </div>
@@ -440,10 +447,10 @@ export default function App() {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
               <div className="text-white max-w-2xl text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-[-0.03em] leading-[1.1]">
-                  Need Pumps, Parts, or Repair Support?
+                  Need Refurbishment, Parts, or Field Support?
                 </h2>
                 <p className="text-lg text-white/80 leading-relaxed">
-                  Speak with our team about your water or wastewater facility requirements — we'll recommend the right equipment and get you what you need.
+                  Speak with our team about your water or wastewater facility — we will align refurbishment scope, parts, and service with what your plant actually runs.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
@@ -496,9 +503,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
-              <img src={directrikLogo} alt="Directrik Logo" className="h-8 w-auto object-contain mb-4 brightness-0 invert" />
+              <img src={directrikLogo} alt="Directrik Logo" className="h-9 w-auto max-h-9 object-contain mb-4" />
               <p className="text-slate-500 text-sm leading-relaxed">
-                Authorized distributor of pumps, pump parts, and process equipment for municipal water and wastewater facilities across Ontario and North America.
+                {SITE_FOOTER_TAGLINE}
               </p>
             </div>
             <div>
