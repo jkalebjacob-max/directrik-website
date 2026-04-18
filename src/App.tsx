@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import heroBg from './photos/hero1.png';
+import directrikLogo from './assets/logos/directrik.png';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import {
@@ -45,8 +46,8 @@ export default function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link to="/" className="text-2xl font-bold tracking-tighter text-brand-900">
-              DIRECTRIK<span className="text-accent">.</span>
+            <Link to="/" className="flex items-center">
+              <img src={directrikLogo} alt="Directrik Logo" className="h-9 w-auto object-contain" />
             </Link>
 
             <div className="hidden md:flex items-center space-x-8">
@@ -495,9 +496,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div>
-              <span className="text-2xl font-bold tracking-tighter text-white mb-4 block">
-                DIRECTRIK<span className="text-accent">.</span>
-              </span>
+              <img src={directrikLogo} alt="Directrik Logo" className="h-8 w-auto object-contain mb-4 brightness-0 invert" />
               <p className="text-slate-500 text-sm leading-relaxed">
                 Authorized distributor of pumps, pump parts, and process equipment for municipal water and wastewater facilities across Ontario and North America.
               </p>

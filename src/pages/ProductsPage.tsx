@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import directrikLogo from '../assets/logos/directrik.png';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Phone, Mail, ArrowRight, Menu, X } from 'lucide-react';
 import { NAV_LINKS, MANUFACTURERS, CONTACT_INFO } from '../constants';
@@ -20,8 +21,8 @@ export default function ProductsPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <Link to="/" className="text-2xl font-bold tracking-tighter text-brand-900">
-              DIRECTRIK<span className="text-accent">.</span>
+            <Link to="/" className="flex items-center">
+              <img src={directrikLogo} alt="Directrik Logo" className="h-9 w-auto object-contain" />
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               {NAV_LINKS.map((link) => (
@@ -212,9 +213,7 @@ export default function ProductsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
             <div>
-              <span className="text-xl font-bold tracking-tighter text-white block mb-3">
-                DIRECTRIK<span className="text-accent">.</span>
-              </span>
+              <img src={directrikLogo} alt="Directrik Logo" className="h-8 w-auto object-contain mb-3 brightness-0 invert" />
               <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
                 Authorized industrial distributor for pumps, fluid systems, and process equipment across North America.
               </p>
