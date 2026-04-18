@@ -74,10 +74,10 @@ export default function ProductsPage() {
             >
               <p className="text-xs font-bold text-accent uppercase tracking-[0.18em] mb-4">Our Catalog</p>
               <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.1] mb-4">
-                Manufacturers & Products
+                Pumps, Parts & Equipment
               </h1>
               <p className="text-slate-400 text-lg leading-[1.7] max-w-2xl">
-                Directrik is an authorized distributor for {MANUFACTURERS.length} leading industrial manufacturers. Browse our full product catalog below.
+                Directrik is an authorized distributor for {MANUFACTURERS.length} leading pump and process equipment manufacturers. Browse our full catalog below — all products available for municipal water and wastewater applications.
               </p>
             </motion.div>
           </div>
@@ -119,9 +119,19 @@ export default function ProductsPage() {
                     className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-slate-50 transition-colors duration-150 group"
                   >
                     <div className="flex items-center gap-4">
-                      <span className="text-base font-extrabold text-brand-700 tracking-[0.1em] w-10 flex-shrink-0">
-                        {mfr.name.split(' ').map(w => w[0]).join('').slice(0, 2)}
-                      </span>
+                      <div className="w-20 h-9 flex items-center flex-shrink-0">
+                        {mfr.logo ? (
+                          <img
+                            src={mfr.logo}
+                            alt={mfr.name}
+                            className="w-full h-full object-contain object-left"
+                          />
+                        ) : (
+                          <span className="text-base font-extrabold text-brand-700 tracking-[0.1em]">
+                            {mfr.name.split(' ').map((w: string) => w[0]).join('').slice(0, 2)}
+                          </span>
+                        )}
+                      </div>
                       <div>
                         <p className="text-sm font-bold text-brand-900 tracking-tight">{mfr.name}</p>
                         <p className="text-xs text-slate-500">{mfr.specialty}</p>
@@ -180,11 +190,11 @@ export default function ProductsPage() {
         <section className="py-20 bg-white border-t border-slate-200">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p className="text-xs font-bold text-accent uppercase tracking-[0.18em] mb-5">Get Started</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-900 tracking-[-0.025em] mb-5">
-              Need a Specific Product?
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-900 tracking-[-0.025em] mb-5">
+              Looking for a Specific Pump or Part?
             </h2>
             <p className="text-slate-500 text-base leading-relaxed mb-10 max-w-xl mx-auto">
-              Not all products are listed here. Contact our team directly and we'll source the right equipment for your application.
+              Not everything is listed here. Contact our team with your specifications and we'll source the right pump or component for your facility.
             </p>
             <Link
               to="/contact"

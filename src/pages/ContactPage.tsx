@@ -16,8 +16,8 @@ import { NAV_LINKS, CONTACT_INFO } from '../constants';
 
 const TRUST_POINTS = [
   { icon: Clock,         text: 'Response within 24 hours' },
-  { icon: Shield,        text: 'Serving industrial clients across Ontario' },
-  { icon: CheckCircle2,  text: 'Expert support for pumps & fluid systems' },
+  { icon: Shield,        text: 'Serving municipalities across Ontario and Canada' },
+  { icon: CheckCircle2,  text: 'Specialized in pumps for water & wastewater treatment' },
 ];
 
 export default function ContactPage() {
@@ -120,7 +120,7 @@ export default function ContactPage() {
                 Request a Quote
               </h1>
               <p className="text-slate-400 text-lg leading-[1.7] max-w-xl">
-                Tell us about your system or requirements and our team will get back to you within 24 hours.
+                Tell us about your pump requirements or facility needs and our team will respond within 24 hours.
               </p>
             </motion.div>
           </div>
@@ -138,7 +138,7 @@ export default function ContactPage() {
                 transition={{ duration: 0.55, ease: 'easeOut' }}
                 className="bg-white border border-slate-200/80 shadow-xl shadow-slate-200/50 p-8 md:p-10"
               >
-                <h2 className="text-xl font-bold text-brand-900 tracking-tight mb-1">Send Us a Message</h2>
+                <h2 className="text-xl font-bold text-brand-900 tracking-tight mb-1">Tell Us About Your Requirements</h2>
                 <p className="text-sm text-slate-500 mb-8">All fields marked * are required.</p>
 
                 {submitStatus === 'success' && (
@@ -235,7 +235,7 @@ export default function ContactPage() {
                       rows={5}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Describe your system, application, or what you need help with…"
+                      placeholder="Describe your pump requirements, facility type, or what you need help with…"
                       className="w-full px-4 py-3 border border-slate-300 rounded-sm text-sm text-brand-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-600 focus:ring-[3px] focus:ring-brand-100 transition-all resize-none"
                     />
                   </div>

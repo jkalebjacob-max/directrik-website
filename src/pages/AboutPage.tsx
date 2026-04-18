@@ -39,11 +39,11 @@ const EXPERTISE_STATS = [
 ];
 
 const INDUSTRY_DETAILS: Record<string, string> = {
-  'Water & Wastewater': 'Pumps, mixers, blowers, and process equipment for municipal and industrial water treatment facilities.',
-  'Chemical':           'Chemical-resistant fluid handling, metering systems, and process equipment for demanding chemical environments.',
-  'Food & Beverage':    'Sanitary-grade pumps and fluid systems meeting strict hygiene standards for food processing operations.',
-  'Petrochemical':      'High-pressure and high-temperature rated equipment for upstream and downstream petrochemical processes.',
-  'Utilities':          'Reliable infrastructure-grade pumping and thermal management solutions for utilities and energy operations.',
+  'Municipal Water Treatment':       'Pumps, mixers, and filtration equipment for water treatment plants — from raw water intake through distribution.',
+  'Municipal Wastewater Treatment':  'Submersible pumps, aerators, and solids-handling equipment for primary, secondary, and tertiary wastewater treatment processes.',
+  'Stormwater Management':           'Wet well pumps, lift station equipment, and controls for stormwater collection and overflow management.',
+  'Water Distribution':              'High-efficiency centrifugal and booster pumps for pressurized water distribution networks serving residential and industrial areas.',
+  'Utilities & Public Works':        'Reliable pump systems for public works departments managing municipal water supply, sewer, and utility infrastructure.',
 };
 
 const WHY_ICONS = [Shield, Zap, Users, CheckCircle2];
@@ -113,10 +113,10 @@ export default function AboutPage() {
             >
               <p className="text-xs font-bold text-accent uppercase tracking-[0.18em] mb-5">About Directrik</p>
               <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em] leading-[1.1] mb-6">
-                Industrial Fluid Systems Expertise, Backed by Decades of Experience
+                Pump Expertise Built for Municipal Water & Wastewater Operations
               </h1>
               <p className="text-slate-400 text-lg leading-[1.7] max-w-2xl">
-                Directrik Inc. is an authorized industrial distributor and service provider based in Ontario, Canada. We supply, engineer, and service pumps, compressors, and fluid control systems for water, wastewater, and high-demand industrial operations across North America.
+                Directrik Inc. is an authorized pump distributor and service provider based in Ontario, Canada. We supply pumps, pump parts, and repair services to municipalities operating water treatment and wastewater treatment infrastructure across Canada and the United States.
               </p>
             </motion.div>
           </div>
@@ -155,17 +155,17 @@ export default function AboutPage() {
               >
                 <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Who We Are</h2>
                 <h3 className="text-3xl md:text-4xl font-bold text-brand-900 tracking-[-0.025em] mb-6">
-                  More Than a Distributor
+                  A Trusted Partner for Municipal Infrastructure
                 </h3>
                 <div className="space-y-5 text-slate-600 leading-[1.78]">
                   <p>
-                    Founded on deep technical knowledge and long-standing manufacturer relationships, Directrik provides complete fluid system solutions — from initial specification and equipment supply through to commissioning, repair, and long-term maintenance.
+                    Founded on deep technical knowledge and long-standing manufacturer relationships, Directrik supplies pumps, pump components, and repair services specifically to municipalities and public utilities managing water and wastewater infrastructure.
                   </p>
                   <p>
-                    We work directly with engineers, plant managers, and procurement teams to identify the right equipment for the application — not the easiest sale. Our team brings hands-on technical expertise that goes well beyond catalogue distribution.
+                    We work directly with plant operators, engineers, and procurement teams to identify the right pump for each application — whether it's a new installation, a replacement, or an urgent repair. Our team provides hands-on technical support that goes well beyond catalogue distribution.
                   </p>
                   <p>
-                    Headquartered in Ontario, we serve industrial clients across Canada and the United States, with on-site field service capabilities and machining facilities in-house.
+                    Headquartered in Ontario, we serve municipal clients across Canada and the United States, with on-site field service capabilities and in-house machining for pump component restoration.
                   </p>
                 </div>
               </motion.div>
@@ -207,18 +207,18 @@ export default function AboutPage() {
               {[
                 {
                   step: '01',
-                  title: 'Understand the Application',
-                  description: 'We evaluate your system requirements, operating conditions, and constraints before making any recommendation. The right equipment is defined by the application — not by what is easiest to supply.',
+                  title: 'Understand the Facility & Application',
+                  description: 'We start by reviewing your system requirements, flow conditions, site constraints, and existing equipment — so the pump we recommend is the right fit, not just the easiest one to supply.',
                 },
                 {
                   step: '02',
-                  title: 'Engineer the Right Solution',
-                  description: 'Our technical team selects and configures equipment from our authorized manufacturer network. Where standard products are insufficient, we engineer custom fluid handling systems from specification through commissioning.',
+                  title: 'Supply the Right Equipment',
+                  description: 'We source pumps and components from our authorized manufacturer network and confirm compatibility with your facility\'s operating conditions before anything ships.',
                 },
                 {
                   step: '03',
-                  title: 'Support Long-Term Performance',
-                  description: 'Delivery is not the end of the engagement. We provide on-site service, scheduled maintenance, emergency repair, and in-house machining to sustain operational reliability over the long term.',
+                  title: 'Support the Life of the Equipment',
+                  description: 'We stay involved after delivery. Our team provides on-site repair, scheduled maintenance, emergency response, and in-house machining to keep municipal systems running reliably over the long term.',
                 },
               ].map((item, idx) => (
                 <motion.div
@@ -301,10 +301,10 @@ export default function AboutPage() {
               >
                 <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Market Expertise</h2>
                 <h3 className="text-3xl md:text-4xl font-bold text-brand-900 tracking-[-0.025em] mb-5">
-                  Industries We Serve
+                  Municipal Applications We Support
                 </h3>
                 <p className="text-slate-500 text-sm leading-relaxed">
-                  Our equipment and service expertise spans five core industrial markets, each with distinct operational demands and compliance requirements.
+                  Our pump supply and service work spans the core areas of municipal water infrastructure, each with distinct flow requirements, regulatory standards, and operational demands.
                 </p>
               </motion.div>
 
@@ -336,7 +336,7 @@ export default function AboutPage() {
             <div className="text-center mb-14">
               <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">The Directrik Advantage</h2>
               <h3 className="text-3xl md:text-4xl font-bold text-white tracking-[-0.025em]">
-                Why Industry Leaders Choose Us
+                Why Municipalities Choose Directrik
               </h3>
             </div>
 
@@ -377,10 +377,10 @@ export default function AboutPage() {
             >
               <p className="text-xs font-bold text-accent uppercase tracking-[0.18em] mb-5">Work With Us</p>
               <h2 className="text-3xl md:text-[2.75rem] font-bold text-brand-900 tracking-[-0.03em] leading-[1.1] mb-5">
-                Get the Right System for Your Operation
+                Get the Right Pump for Your Facility
               </h2>
               <p className="text-slate-500 text-base leading-relaxed mb-10 max-w-xl mx-auto">
-                Speak directly with our engineering team. Tell us your application and requirements — we'll specify the right equipment and service plan.
+                Talk to our team about your water or wastewater application. We'll specify the right pump and service plan for your facility.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link

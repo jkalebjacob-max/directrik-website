@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import heroBg from './photos/hero1.png';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import {
@@ -104,23 +105,25 @@ export default function App() {
       <main className="pt-20">
 
         {/* ── Hero ── */}
-        <section className="relative h-[88vh] flex items-center overflow-hidden bg-brand-900">
-          {/* Background image */}
+        <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-brand-900">
+
+          {/* Background image — full opacity, gradient does the work */}
           <div className="absolute inset-0 z-0">
             <img
-              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2070"
-              alt="Industrial Facility"
-              className="w-full h-full object-cover opacity-35"
-              referrerPolicy="no-referrer"
+              src={heroBg}
+              alt=""
+              aria-hidden="true"
+              className="w-full h-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/85 to-brand-900/50" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-900/60 via-transparent to-transparent" />
+            {/* Left-to-right: strong cover on text side, fades to nearly clear on right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/80 to-brand-900/25" />
+            {/* Bottom vignette for grounding */}
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-900/65 via-transparent to-transparent" />
+            {/* Subtle top darkening so nav transition is smooth */}
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-900/30 via-transparent to-transparent" />
           </div>
 
-          {/* Subtle radial depth */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_20%_50%,rgba(72,101,129,0.2),transparent)] pointer-events-none z-0" />
-
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-24">
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -130,20 +133,20 @@ export default function App() {
               <div className="inline-flex items-center gap-2 bg-accent/15 border border-accent/25 px-3 py-1.5 rounded-full mb-7">
                 <span className="w-1.5 h-1.5 bg-accent rounded-full" />
                 <span className="text-accent text-xs font-bold uppercase tracking-[0.15em]">
-                  Authorized Industrial Distributor
+                  Authorized Pump Distributor — Ontario
                 </span>
               </div>
 
               <h1 className="text-5xl md:text-[4rem] font-bold text-white tracking-[-0.03em] leading-[1.08] mb-6">
-                Precision Fluid Systems.<br />
-                <span className="text-slate-400">Engineered to Perform.</span>
+                Reliable Pumps for Water<br />
+                <span className="text-slate-300">& Wastewater Treatment.</span>
               </h1>
 
-              <p className="text-lg text-slate-300 leading-[1.7] mb-10 max-w-xl">
-                Trusted distributor and service provider for pumps, compressors, and fluid control systems across water, wastewater, and high-demand industrial operations.
+              <p className="text-base text-slate-300 leading-[1.75] mb-10 max-w-lg">
+                Directrik supplies pumps, pump parts, and repair services to municipalities and public utilities operating water treatment and wastewater treatment facilities across Ontario and beyond.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-14">
+              <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <Link
                   to="/contact"
                   className="inline-flex items-center justify-center bg-accent text-white px-8 py-4 rounded-sm font-bold hover:bg-orange-600 hover:-translate-y-px hover:shadow-xl hover:shadow-orange-700/25 transition-all duration-200 group"
@@ -153,18 +156,18 @@ export default function App() {
                 </Link>
                 <Link
                   to="/products"
-                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-sm font-bold hover:bg-white/20 transition-all duration-200"
+                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm text-white border border-white/20 px-8 py-4 rounded-sm font-bold hover:bg-white/18 transition-all duration-200"
                 >
                   View Products
                 </Link>
               </div>
 
-              {/* Trust indicators */}
-              <div className="flex flex-wrap gap-x-8 gap-y-4">
+              {/* Trust stats */}
+              <div className="flex flex-wrap gap-x-8 gap-y-4 pt-8 border-t border-white/10">
                 {TRUST_STATS.map((stat) => (
                   <div key={stat.label}>
                     <p className="text-xl font-bold text-white leading-none">{stat.value}</p>
-                    <p className="text-xs text-slate-500 mt-1 font-medium">{stat.label}</p>
+                    <p className="text-xs text-slate-400 mt-1 font-medium">{stat.label}</p>
                   </div>
                 ))}
               </div>
@@ -176,7 +179,7 @@ export default function App() {
         <div className="bg-slate-50 border-y border-slate-200 py-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-slate-400 mb-7">
-              Authorized distributor for leading manufacturers
+              Authorized distributor for leading pump manufacturers
             </p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-14 opacity-50 grayscale hover:opacity-70 transition-all duration-500">
               {BRANDS.slice(0, 6).map((brand) => (
@@ -199,7 +202,7 @@ export default function App() {
                 </h3>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
-                From initial specification to long-term maintenance — the full service lifecycle for industrial fluid systems.
+                From pump supply and parts to on-site repair and long-term maintenance — supporting municipal water and wastewater operations at every stage.
               </p>
             </div>
 
@@ -234,7 +237,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
               <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Our Catalog</h2>
-              <h3 className="text-4xl md:text-5xl font-bold tracking-[-0.025em]">Industrial Equipment Portfolio</h3>
+              <h3 className="text-4xl md:text-5xl font-bold tracking-[-0.025em]">Pumps, Parts & Process Equipment</h3>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -278,7 +281,7 @@ export default function App() {
                 </h3>
               </div>
               <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
-                Direct factory relationships across 10+ leading industrial brands.
+                Direct factory partnerships with 10+ pump and process equipment manufacturers serving the municipal water and wastewater sector.
               </p>
             </div>
 
@@ -293,9 +296,19 @@ export default function App() {
                   className="bg-white border border-slate-200/80 shadow-sm shadow-slate-200/40 p-6 group hover:border-slate-300 hover:shadow-lg hover:shadow-slate-200/70 transition-all duration-250"
                 >
                   <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-100">
-                    <span className="text-xl font-extrabold text-brand-700 tracking-[0.08em]">
-                      {mfr.name.split(' ').map(w => w[0]).join('').slice(0, 3)}
-                    </span>
+                    <div className="w-20 h-10 flex items-center flex-shrink-0">
+                      {mfr.logo ? (
+                        <img
+                          src={mfr.logo}
+                          alt={mfr.name}
+                          className="w-full h-full object-contain object-left"
+                        />
+                      ) : (
+                        <span className="text-xl font-extrabold text-brand-700 tracking-[0.08em]">
+                          {mfr.name.split(' ').map((w: string) => w[0]).join('').slice(0, 3)}
+                        </span>
+                      )}
+                    </div>
                     <div>
                       <p className="text-sm font-bold text-brand-900 tracking-tight">{mfr.name}</p>
                       <p className="text-xs text-slate-500">{mfr.specialty}</p>
@@ -334,9 +347,9 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Market Expertise</h2>
+                <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">Who We Serve</h2>
                 <h3 className="text-4xl md:text-5xl font-bold text-brand-900 mb-8 tracking-[-0.025em]">
-                  Industries We Serve
+                  Municipal Applications
                 </h3>
                 <div className="space-y-3">
                   {INDUSTRIES.map((industry) => (
@@ -366,7 +379,7 @@ export default function App() {
             <div className="bg-brand-900 overflow-hidden flex flex-col lg:flex-row">
               <div className="lg:w-1/2 p-12 md:p-20">
                 <h2 className="text-sm font-bold text-accent uppercase tracking-widest mb-4">The Directrik Advantage</h2>
-                <h3 className="text-4xl font-bold text-white mb-12 tracking-[-0.025em]">Why Industry Leaders Trust Us</h3>
+                <h3 className="text-4xl font-bold text-white mb-12 tracking-[-0.025em]">Why Municipalities Choose Directrik</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   {WHY_CHOOSE_US.map((item) => (
                     <div key={item.title}>
@@ -393,13 +406,13 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <div className="inline-block px-4 py-1 bg-brand-900 text-white text-xs font-bold uppercase tracking-widest mb-6">
-                Critical Service
+                Emergency Service
               </div>
               <h3 className="text-4xl md:text-5xl font-bold text-brand-900 mb-6 tracking-[-0.025em]">
-                24-Hour On-Site Repair Services
+                24-Hour Pump Repair for Municipal Facilities
               </h3>
               <p className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed">
-                Our specialized technicians are ready to deploy for pump, compressor, and blower emergencies — because downtime is never an option.
+                Water and wastewater operations cannot stop. Our technicians respond within 24 hours to pump failures at treatment plants, pumping stations, and distribution infrastructure.
               </p>
               <div className="flex flex-wrap justify-center gap-4 mb-12">
                 {['Pump Repair', 'Compressor Repair', 'Blower Repair'].map((service) => (
@@ -426,10 +439,10 @@ export default function App() {
             <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
               <div className="text-white max-w-2xl text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl font-bold mb-5 tracking-[-0.03em] leading-[1.1]">
-                  Need a Quote or Technical Assistance?
+                  Need Pumps, Parts, or Repair Support?
                 </h2>
                 <p className="text-lg text-white/80 leading-relaxed">
-                  Speak with our engineering team to find the right solution for your application.
+                  Speak with our team about your water or wastewater facility requirements — we'll recommend the right equipment and get you what you need.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 flex-shrink-0">
@@ -486,7 +499,7 @@ export default function App() {
                 DIRECTRIK<span className="text-accent">.</span>
               </span>
               <p className="text-slate-500 text-sm leading-relaxed">
-                Authorized industrial distributor for pumps, fluid systems, and process equipment across North America.
+                Authorized distributor of pumps, pump parts, and process equipment for municipal water and wastewater facilities across Ontario and North America.
               </p>
             </div>
             <div>
